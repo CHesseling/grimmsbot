@@ -21,10 +21,10 @@ from PIL import ImageDraw
 # In[3]:
 
 
-consumer_key = os.getenv['twitter_consumer_key']
-consumer_secret = os.getenv['twitter_consumer_secret']
-access_token = os.getenv['twitter_access_token']
-access_secret = os.getenv['twitter_access_secret']
+consumer_key = os.getenv('twitter_consumer_key')
+consumer_secret = os.getenv('twitter_consumer_secret')
+access_token = os.getenv('twitter_access_token')
+access_secret = os.getenv('twitter_access_secret')
 print("Key:", consumer_key)
  
 auth = OAuthHandler(consumer_key, consumer_secret)
