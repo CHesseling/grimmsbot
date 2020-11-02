@@ -21,15 +21,11 @@ from PIL import ImageDraw
 # In[3]:
 
 
-consumer_key = 
-consumer_secret = 
-access_token = 
-access_secret = 
+consumer_key = twitter_consumer_key
+consumer_secret = twitter_consumer_secret
+access_token = twitter_access_token
+access_secret = twitter_access_secret
 
-#consumer_key = 'euer_key'
-#consumer_secret = 'euer_key'
-#access_token = 'euer_key'
-#access_secret = 'euer_key'
  
 auth = OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_secret)
