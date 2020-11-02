@@ -1,4 +1,4 @@
-
+#%%
 # coding: utf-8
 
 import tweepy
@@ -7,7 +7,7 @@ import json
 from bs4 import BeautifulSoup
 import re
 from tweepy import OAuthHandler
-from tweepy.streaming import StreamListener
+#from tweepy.streaming import StreamListener
 from string import ascii_lowercase
 import pandas as pd
 import numpy as np
