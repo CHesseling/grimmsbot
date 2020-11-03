@@ -46,7 +46,7 @@ if __name__ == '__main__':
     parser.add_argument('--twitter_consumer_secret', type=str, help="pass a message into the script")
     
     args = parser.parse_args()
-
+    print ("Test", args.twitter_consumer_key)
 
     consumer_key = args.twitter_consumer_key
     consumer_secret = args.twitter_consumer_secret
