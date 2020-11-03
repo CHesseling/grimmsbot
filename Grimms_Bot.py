@@ -68,10 +68,6 @@ if __name__ == '__main__':
 
 
 
-
-
-
-
     df_sample = df.sample()
     wort = df_sample.iloc[0]['match']
     wort_id = df_sample.iloc[0]['lemid']
@@ -84,9 +80,9 @@ if __name__ == '__main__':
     #print (meldung)
     api.update_with_media(filename, status=meldung)
     bla = str(wort_id)
-    #df2[df2.lemid != bla]
+
     df = df.drop([bla])
-    #print ("Dropped", bla)
+
     df.to_csv('woerter.csv')
 
 
