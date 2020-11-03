@@ -46,12 +46,12 @@ if __name__ == '__main__':
     parser.add_argument('--twitter_consumer_secret', type=str, help="pass a message into the script")
     
     args = parser.parse_args()
-    print(args.twitter_consumer_secret)
 
-    consumer_key = os.getenv('twitter_consumer_key')
-    consumer_secret = os.getenv('twitter_consumer_secret')
-    access_token = os.getenv('twitter_access_token')
-    access_secret = os.getenv('twitter_access_secret')
+
+    consumer_key = args.twitter_consumer_key
+    consumer_secret = args.twitter_consumer_secret
+    access_token = args.twitter_access_token
+    access_secret = args.twitter_access_secret
     
     auth = OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_secret)
