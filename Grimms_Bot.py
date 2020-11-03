@@ -16,25 +16,10 @@ from PIL import Image
 from PIL import ImageFont
 from PIL import Image
 from PIL import ImageDraw
+import argparse
 
 
 # In[3]:
-
-
-consumer_key = os.getenv('twitter_consumer_key')
-consumer_secret = os.getenv('twitter_consumer_secret')
-access_token = os.getenv('twitter_access_token')
-access_secret = os.getenv('twitter_access_secret')
-print("Key:", consumer_key)
- 
-auth = OAuthHandler(consumer_key, consumer_secret)
-auth.set_access_token(access_token, access_secret)
- 
-api = tweepy.API(auth)
-
-
-# In[19]:
-
 
 def texttopic(wort2, id2):
     font = ImageFont.truetype("RobotoCondensed-Regular.ttf",40)
@@ -48,32 +33,51 @@ def texttopic(wort2, id2):
     dateiname = "wort.png"
     img.save(dateiname)
 
-
-# In[4]:
-
-
-df = pd.read_csv('woerter.csv')
+#%%
 
 
-# In[5]:
+
+if __name__ == '__main__':
+    # Initialize the parser
+    parser = argparse.ArgumentParser(
+        description="simple script to demonstrate argparse usage"
+    )
+    # Add the positional parameter
+    parser.add_argument('twitter_consumer_key', help="The string to be printed")
+
+    # Parse the arguments
+    arguments = parser.parse_args()
+
+    # Finally print the passed string
+    print(arguments.twitter_consumer_key)
 
 
-df["tweeted"] = ""
-df["Index"] = df["lemid"]
-df.set_index('Index', inplace=True)
+
+    consumer_key = os.getenv('twitter_consumer_key')
+    consumer_secret = os.getenv('twitter_consumer_secret')
+    access_token = os.getenv('twitter_access_token')
+    access_secret = os.getenv('twitter_access_secret')
+    
+    auth = OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token, access_secret)
+    
+    api = tweepy.API(auth)
 
 
-# In[6]:
+    df = pd.read_csv('woerter.csv')
 
 
-df2 = df
+    df["tweeted"] = ""
+    df["Index"] = df["lemid"]
+    df.set_index('Index', inplace=True)
 
 
-# In[21]:
 
 
-while len(df2) > 0:
-    df_sample = df2.sample()
+
+
+
+    df_sample = df.sample()
     wort = df_sample.iloc[0]['match']
     wort_id = df_sample.iloc[0]['lemid']
     texttopic(wort, wort_id)
@@ -89,11 +93,5 @@ while len(df2) > 0:
     df2 = df2.drop([bla])
     #print ("Dropped", bla)
     df2.to_csv('woerter.csv')
-    time.sleep(3600)
-
-
-# In[20]:
-
-
 
 
