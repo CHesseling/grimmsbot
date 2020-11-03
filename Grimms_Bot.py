@@ -17,7 +17,7 @@ from PIL import ImageFont
 from PIL import Image
 from PIL import ImageDraw
 import argparse
-
+import sys
 
 # In[3]:
 
@@ -38,20 +38,15 @@ def texttopic(wort2, id2):
 
 
 if __name__ == '__main__':
-    # Initialize the parser
-    parser = argparse.ArgumentParser(
-        description="simple script to demonstrate argparse usage"
-    )
-    # Add the positional parameter
-    parser.add_argument('twitter_consumer_key', help="The string to be printed")
-
-    # Parse the arguments
-    arguments = parser.parse_args()
-
-    # Finally print the passed string
-    print(arguments.twitter_consumer_key)
-
-
+    print('Los gehts')
+    parser = argparse.ArgumentParser(description="Does some awesome things.")
+    parser.add_argument('--twitter_access_secret', type=str, help="pass a message into the script")
+    parser.add_argument('--twitter_access_token', type=str, help="pass a message into the script")
+    parser.add_argument('--twitter_consumer_key', type=str, help="pass a message into the script")
+    parser.add_argument('--twitter_consumer_secret', type=str, help="pass a message into the script")
+    
+    args = parser.parse_args()
+    print(args.twitter_consumer_secret)
 
     consumer_key = os.getenv('twitter_consumer_key')
     consumer_secret = os.getenv('twitter_consumer_secret')
