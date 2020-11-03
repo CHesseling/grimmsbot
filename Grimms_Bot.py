@@ -27,7 +27,7 @@ def texttopic(wort2, id2):
     img=Image.new("RGBA", (440,220),(255,255,255))
     draw = ImageDraw.Draw(img)
     draw.text((220, 180), "#GrimmsWort",(0,0,0),font=font2)
-    draw.text((45, 30), wort2,(0,0,0),font=font)
+    draw.text((60, 60), wort2,(0,0,0),font=font)
     draw = ImageDraw.Draw(img)
     #dateiname = "wort_{}.png".format(wort2) 
     dateiname = "wort.png"
@@ -85,8 +85,8 @@ if __name__ == '__main__':
     api.update_with_media(filename, status=meldung)
     bla = str(wort_id)
     #df2[df2.lemid != bla]
-    df2 = df2.drop([bla])
+    df = df.drop([bla])
     #print ("Dropped", bla)
-    df2.to_csv('woerter.csv')
+    df.to_csv('woerter.csv')
 
 
